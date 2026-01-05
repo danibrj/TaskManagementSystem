@@ -27,7 +27,13 @@ class ManageTasks:
         print(self.seg.query_task_sum(t_id1,t_id2))
     
     def printTrees(self):
+        print("B-Tree:")
         self.datas.print_tree()
+        print("================================================================")
+        print("Segment-Tree:")
+        self.seg.print_tree()
+        print("================================================================")
+        
     
     
 
