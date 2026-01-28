@@ -23,6 +23,8 @@ class BTree:
             task.start_time = startTime
             task.end_time = endTime
             task.value = value
+            return True
+        return False
 
     def _search(self, node, task_id):
         i = 0

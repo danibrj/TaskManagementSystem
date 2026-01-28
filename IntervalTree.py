@@ -110,11 +110,11 @@ class IntervalTree:
 
 
 
-x = IntervalTree()
-x.insert_task(1,10,15,50)
-x.insert_task(2,16,20,50)
-x.insert_task(3,21,25,50)
-x.insert_task(4,26,30,50)
+# x = IntervalTree()
+# x.insert_task(1,10,15,50)
+# x.insert_task(2,16,20,50)
+# x.insert_task(3,21,25,50)
+# x.insert_task(4,26,30,50)
 
-x.insert_task(5,18,34,67)
-x.print_tree()
+# x.insert_task(5,18,34,67)
+# x.print_tree()

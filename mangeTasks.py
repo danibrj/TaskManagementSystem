@@ -1,23 +1,33 @@
 from Task import Task
 from B_Tree import BTree
 from Segment_Tree import SegmentTree
+from IntervalTree import IntervalTree
 class ManageTasks:
     def __init__(self):
         self.datas = BTree(2)
         self.seg = SegmentTree(10000)
+        self.inter = IntervalTree()
     
     def insertTask(self,t_id,startTime,endTime,value):
         task = Task(t_id,startTime,endTime,value)
+        isOk = self.inter.insert_task(t_id,startTime,endTime,value)
+        if not isOk:
+            return
         self.datas.insert(task)
         self.seg.insert_task(task.t_id,task.value)
     
     def deleteTask(self,t_id):
         self.datas.delete(t_id) 
         self.seg.delete_task(t_id)
+        self.inter.delete_task(t_id)
     
     def updateTask(self,t_id,startTime,endTime,value):
-        self.datas.search_for_update(t_id,startTime,endTime,value)
+        res = self.datas.search_for_update(t_id,startTime,endTime,value)
+        if not res:
+            print("Not found for update")
+            return
         self.seg.update_task(t_id,value)
+        self.inter.update_task(t_id,startTime,endTime,value)
     
     def queryTaskId(self,t_id):
         task = self.datas.search(t_id)
@@ -33,7 +43,8 @@ class ManageTasks:
         print("Segment-Tree:")
         self.seg.print_tree()
         print("================================================================")
-        
+        print("Interval Tree:")
+        self.inter.print_tree()
     
     
 
