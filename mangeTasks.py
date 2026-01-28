@@ -15,11 +15,18 @@ class ManageTasks:
             return
         self.datas.insert(task)
         self.seg.insert_task(task.t_id,task.value)
+        print(f"task with id '{t_id}' was inserted")
+        
     
     def deleteTask(self,t_id):
+        if self.datas.search(t_id) is None:
+            print("not found!!!")
+            return
         self.datas.delete(t_id) 
         self.seg.delete_task(t_id)
         self.inter.delete_task(t_id)
+        print(f"task with id '{t_id}' was deleted")
+        
     
     def updateTask(self,t_id,startTime,endTime,value):
         res = self.datas.search_for_update(t_id,startTime,endTime,value)
@@ -28,6 +35,7 @@ class ManageTasks:
             return
         self.seg.update_task(t_id,value)
         self.inter.update_task(t_id,startTime,endTime,value)
+        print(f"task with id '{t_id}' was updated")
     
     def queryTaskId(self,t_id):
         task = self.datas.search(t_id)
