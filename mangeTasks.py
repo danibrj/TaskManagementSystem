@@ -5,7 +5,7 @@ from IntervalTree import IntervalTree
 class ManageTasks:
     def __init__(self):
         self.datas = BTree(2)
-        self.seg = SegmentTree(10000)
+        self.seg = SegmentTree()
         self.inter = IntervalTree()
     
     def insertTask(self,t_id,startTime,endTime,value):
